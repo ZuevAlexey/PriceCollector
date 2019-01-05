@@ -1,0 +1,16 @@
+﻿{
+    "items": [
+        {
+            "ProductName": "ПРОЦЕССОР AMD RYZEN 7 2700X SAM4 OEM 105W 3700 YD270XBGM88AF",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/protsessory/280979/",
+        }
+    ],
+	"sellerSettings": [
+		{
+			"Name": "Мегабит",
+			"ElementSelector": "div.leftMain meta[itemprop='price']",
+			"AttributeName": "content"
+		}
+	]
+}

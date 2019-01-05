@@ -1,55 +1,108 @@
 ﻿{
-    "Settings": [
+	"items": [
         {
+            "ProductName": "ПРОЦЕССОР AMD RYZEN 7 2700X SAM4 OEM 105W 3700 YD270XBGM88AF",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/protsessory/280979/",
+        },
+		{
+            "ProductName": "БЛОК ПИТАНИЯ AEROCOOL 750W RETAIL VX PLUS 750 RGB , ПОДСВЕТКА, ATXV2.3 HASWELL, FAN 12CM, 500MM CABLE, POWER CORD, PCIE 6+2P X2, SATA X6, PATA X3, FDD",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/bloki_pitaniya/300734/",
+        },
+		{
+            "ProductName": "ВИДЕОКАРТА GIGABYTE GEFORCE GTX1070 TI GV-N107TWF2-8GD, RTL",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/videokarty/268612/",
+        },
+		{
+            "ProductName": "ИСТОЧНИК БЕСПЕРЕБОЙНОГО ПИТАНИЯ APC BACK-UPS BX650CI-RS 650ВА ЧЕРНЫЙ",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/ibp/10516/",
+        },
+		{
+            "ProductName": "МАТЕРИНСКАЯ ПЛАТА GIGABYTE B450M S2H",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/materinskie_platy/321469/",
+        },
+		{
+            "ProductName": "НАКОПИТЕЛЬ SSD GOODRAM IR-SSDPR-S25A-240 2,5\" SATA-III IRIDIUM 240GB 7MM MLC",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/nakopiteli_ssd/300683/",
+        },
+		{
+            "ProductName": "ПАМЯТЬ ОПЕРАТИВНАЯ KINGSTON HX429C17FRK2/32 HYPERX FURY RED 32GB 2933MHZ DDR4 CL17 DIMM (KIT OF 2)",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/pamyat_operativnaya_dlya_pk/279123/",
+        },
+		{
+            "ProductName": "УСТРОЙСТВО ОХЛАЖДЕНИЯ DEEPCOOL ARCHER BIGPRO",
+            "SellerName": "Мегабит",
+			"Url": "https://tula.megabitcomp.ru/catalog/ustrojstva_okhlazhdeniya/232223/",
+        },
+		{
             "ProductName": "Подгузники Huggies Classic 3 4-9кг 96шт",
             "SellerName": "Детский мир",
-            "ParseSettings": {
-                "Url": "https://www.detmir.ru/product/index/id/3019066/",
-                "ElementSelector": "pr#priceId"
-            }
+			"Url": "https://www.detmir.ru/product/index/id/3019066/",
         },
         {
             "ProductName": "Подгузники Huggies Classic 3 4-9кг 96шт",
             "SellerName": "Кораблик",
-            "ParseSettings": {
-                "Url": "https://tula.korablik.ru/product/2260317/?utm_referrer=&fa821dba_ipp_key=v1545506584720%2fv33947245b95adc7a72e273%2fNb6LzXjXgLQhNbnLD4JqgQ%3d%3d&fa821dba_ipp_uid=1545506584720%2fgOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d&fa821dba_ipp_uid1=1545506584720&fa821dba_ipp_uid2=gOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d",
-                "ElementSelector": "span#current_offer_price",
-                "AttributeName": "data-price",
-                "LoaderName": "ChromeDriver"
-            }
+            "Url": "https://tula.korablik.ru/product/2260317/?utm_referrer=&fa821dba_ipp_key=v1545506584720%2fv33947245b95adc7a72e273%2fNb6LzXjXgLQhNbnLD4JqgQ%3d%3d&fa821dba_ipp_uid=1545506584720%2fgOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d&fa821dba_ipp_uid1=1545506584720&fa821dba_ipp_uid2=gOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d",
         },
-        {
+		{
             "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
             "SellerName": "Дочки-сыночки (Тула)",
-            "ParseSettings": {
-                "Url": "https://tula.dochkisinochki.ru/icatalog/products/118047/",
-                "ElementSelector": "span#ProductMainPrice"
-            }
+            "Url": "https://tula.dochkisinochki.ru/icatalog/products/118047/",
         },
-        {
+		{
             "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
             "SellerName": "Дочки-сыночки (Щекино)",
-            "ParseSettings": {
-                "Url": "https://www.dochkisinochki.ru/icatalog/products/118047/",
-                "ElementSelector": "span#ProductMainPrice"
-            }
+            "Url": "https://www.dochkisinochki.ru/icatalog/products/118047/",
         },
-        {
+		{
             "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
             "SellerName": "Аптека-ру (Тула)",
-            "ParseSettings": {
-                "Url": "https://apteka.ru/catalog/huggies-podguzniki-classic-3-4-9kg-n78-_530c4aa546611/",
-                "ElementSelector": "div.new_price span"
-            }
+            "Url": "https://apteka.ru/catalog/huggies-podguzniki-classic-3-4-9kg-n78-_530c4aa546611/",
+        },
+		{
+			"ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
+			"SellerName": "Ласточка (Тула)",
+			"Url": "http://www.babypages.ru/catalog/podguzniki_odnorazovye/huggies_classic_4_9_kg_razmer_3_78_sht/",
+		},
+    ],
+	"sellerSettings": [
+		{
+			"Name": "Мегабит",
+			"ElementSelector": "div.leftMain meta[itemprop='price']",
+			"AttributeName": "content",
+		},
+		{
+            "Name": "Детский мир",
+            "ElementSelector": "pr#priceId",
         },
         {
-            "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
-            "SellerName": "Ласточка (Тула)",
-            "ParseSettings": {
-                "Url": "http://www.babypages.ru/catalog/podguzniki_odnorazovye/huggies_classic_4_9_kg_razmer_3_78_sht/",
-                "ElementSelector": "div.item_price meta[itemprop='price']",
-                "AttributeName": "content"
-            }
-        }
-    ]
+            "Name": "Кораблик",
+            "ElementSelector": "span#current_offer_price",
+            "AttributeName": "data-price",
+            "LoaderName": "ChromeDriver",
+        },
+		{
+            "Name": "Дочки-сыночки (Тула)",
+            "ElementSelector": "span#ProductMainPrice",
+        },
+		{
+            "Name": "Дочки-сыночки (Щекино)",
+            "ElementSelector": "span#ProductMainPrice",
+        },
+		{
+            "Name": "Аптека-ру (Тула)",
+            "ElementSelector": "div.price[itemprop='offers'] span[itemprop='price']",
+        },
+		{
+			"Name": "Ласточка (Тула)",
+			"ElementSelector": "div.item_price meta[itemprop='price']",
+			"AttributeName": "content",
+        },
+	]
 }

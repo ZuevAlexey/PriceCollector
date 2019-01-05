@@ -8,7 +8,8 @@ namespace PriceCollector.Core.Loader {
         public async Task<string> Load(string url) {
             using (var driver = new ChromeDriver()) {
                 driver.Navigate().GoToUrl(url);
-                return driver.PageSource;
+                var source = driver.PageSource;
+                return source;
             }
         }
 

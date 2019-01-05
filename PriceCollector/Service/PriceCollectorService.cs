@@ -28,7 +28,7 @@ public class PriceCollectorService {
 
     private void Collect() {
         var configPath = Path.Combine(Directory.GetCurrentDirectory(), "Config", "ParseConfig.json");
-        var config = JsonParseConfig.Load(configPath);
+        var config = JsonConfig.Load(configPath);
         var collector = new SitePriceCollector(new SQLiteResultSaver(), config, new LoaderFactory(null));
         collector.Collect();
     }

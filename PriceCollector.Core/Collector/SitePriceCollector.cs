@@ -1,9 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AngleSharp.Dom.Html;
-using AngleSharp.Extensions;
-using AngleSharp.Parser.Html;
 using NLog;
 using PriceCollector.Core.Config;
 using PriceCollector.Core.Data.Enums;
@@ -12,71 +10,59 @@ using PriceCollector.Core.Data.Result;
 using PriceCollector.Core.Data.Settings;
 using PriceCollector.Core.Extensions;
 using PriceCollector.Core.Loader;
+using PriceCollector.Core.Selector;
+
 
 namespace PriceCollector.Core.Collector {
     public class SitePriceCollector : IPriceCollector {
         private readonly ILoaderFactory _loaderFactory;
+        private readonly ISelectorFactory _selectorFactory;
         private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
         private readonly ILogger _errorPareslogger = LogManager.GetLogger($"{nameof(SitePriceCollector)}_ErrorContent");
-        private readonly IParseConfig _parseConfig;
+        private readonly IConfig _parseConfig;
         private readonly IResultSaver _saver;
 
-        public SitePriceCollector(IResultSaver saver, IParseConfig parseConfig, ILoaderFactory loaderFactory) {
+        public SitePriceCollector(IResultSaver saver, IConfig parseConfig, ILoaderFactory loaderFactory, ISelectorFactory selectorFactory) {
             _saver = saver;
             _parseConfig = parseConfig;
             _loaderFactory = loaderFactory;
+            _selectorFactory = selectorFactory;
         }
 
         public async Task Collect() {
             var settings = _parseConfig.GetSettings();
-            var tasks = settings.Settings
-                .Select(CollectItem)
+            var tasks = settings.Items
+                .Select(e => CollectItem(e, settings))
                 .ToArray();
 
             await Task.WhenAll(tasks);
             var itemsToSave = tasks
-                .Select(e => e.Result)
+                .SelectMany(e => e.Result)
                 .Where(e => e.Result.Status == ResultStatus.OK)
                 .ToArray();
 
             await _saver.Save(itemsToSave);
         }
 
-        private async Task<ResultItem> CollectItem(ParseItem item) {
-            var settings = item.ParseSettings;
-
-            var result = new ResultItem {
-                Info = item.Info,
-                Result = new PriceResult {
-                    Url = item.ParseSettings.Url
-                }
-            };
-            IHtmlDocument document;
+        private async Task<List<ResultItem>> CollectItem(ParseItem item, CollectorSettings settings) {
+            var sellerParseSettings = settings.GetParseSettings(item.SellerName);
+            string content;
             try {
-                document = await GetDocument(settings);
+                var loader = _loaderFactory.GetLoader(sellerParseSettings.LoaderName);
+                content = await loader.Load(item.Url);
             } catch (Exception ex) {
                 _logger.Error(ex, $"[{item.ToJson()}] ошибка при загрузке страницы");
-                result.Result.Status = ResultStatus.LoadFail;
-                return result;
+                return new List<ResultItem>(0);
             }
-
-            var element = document.QuerySelector(settings.ElementSelector);
 
             try {
-                var dirtyPrice = settings.IsContentSelector
-                    ? element.InnerHtml
-                    : element.Attributes[settings.AttributeName].Value;
-                var price = ParseDirtyPrice(dirtyPrice);
-                result.Result.Price = price;
-                result.Result.Status = ResultStatus.OK;
-                _logger.Info($"[{item.ToJson()}] успешно спарсили страницу: {result.ToJson()}");
+                var selector = _selectorFactory.GetSelector(item.SelectorType);
+                return await selector.Select(content);
             } catch (Exception ex) {
                 _logger.Error(ex, $"[{item.ToJson()}] ошибка при парсинге страницы");
-                _errorPareslogger.Error(ex, $"[{item.ToJson()}] ошибка при парсинге страницы : {document.ToHtml()}");
-                result.Result.Status = ResultStatus.LoadFail;
+                _errorPareslogger.Error(ex, $"[{item.ToJson()}] ошибка при парсинге страницы : {content}");
+                return new List<ResultItem>(0);
             }
-
-            return result;
         }
 
         private static decimal ParseDirtyPrice(string dirtyPrice) {
@@ -104,11 +90,6 @@ namespace PriceCollector.Core.Collector {
             }
 
             return result;
-        }
-
-        private async Task<IHtmlDocument> GetDocument(ParseItemSettings settings) {
-            var content = await _loaderFactory.GetLoader(settings.LoaderName).Load(settings.Url);
-            return await new HtmlParser().ParseAsync(content);
         }
     }
 }

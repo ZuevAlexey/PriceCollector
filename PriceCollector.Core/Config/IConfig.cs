@@ -1,7 +1,7 @@
 ﻿using PriceCollector.Core.Data.Settings;
 
 namespace PriceCollector.Core.Config {
-   public interface IParseConfig {
+   public interface IConfig {
       CollectorSettings GetSettings();
    }
 }

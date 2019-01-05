@@ -1,8 +1,7 @@
-﻿using PriceCollector.Core.Data.Item;
-
-namespace PriceCollector.Core.Data.Result {
+﻿namespace PriceCollector.Core.Data.Result {
    public class ResultItem {
-      public ItemInfo Info { get; set; }
+      public string ProductName { get; set; }
+      public string SellerName { get; set; }
       public PriceResult Result { get; set; }
    }
 }

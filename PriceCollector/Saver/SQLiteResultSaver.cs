@@ -51,8 +51,8 @@ namespace PriceCollector.Saver {
                             $"VALUES (@ProductName, @SellerName, @Price, @Url, @Status, @CollectDate)",
                             conn);
                     //insertSql.Parameters["Status"].DbType = DbType.Byte;
-                    insertSql.Parameters.AddWithValue("ProductName", resultItem.Info.ProductName);
-                    insertSql.Parameters.AddWithValue("SellerName", resultItem.Info.SellerName);
+                    insertSql.Parameters.AddWithValue("ProductName", resultItem.ProductName);
+                    insertSql.Parameters.AddWithValue("SellerName", resultItem.SellerName);
                     insertSql.Parameters.AddWithValue("Price", resultItem.Result.Price);
                     insertSql.Parameters.AddWithValue("Url", resultItem.Result.Url);
                     insertSql.Parameters.AddWithValue("Status", (byte)resultItem.Result.Status);
@@ -60,7 +60,7 @@ namespace PriceCollector.Saver {
                     Debug.WriteLine(insertSql.CommandText);
 
                     try {
-                        if (insertSql.ExecuteNonQuery() != 1) {
+                        if (await insertSql.ExecuteNonQueryAsync() != 1) {
                             _logger.Error($"Saving are failed {resultItem.ToJson()}");
                         }
                     } catch (Exception ex) {

@@ -5,10 +5,10 @@ using PriceCollector.Core.Data.Settings;
 using PriceCollector.Core.Extensions;
 
 namespace PriceCollector.Config {
-   public class JsonParseConfig : IParseConfig {
+   public class JsonConfig : IConfig {
       private readonly CollectorSettings _settings;
 
-      private JsonParseConfig(CollectorSettings settings) {
+      private JsonConfig(CollectorSettings settings) {
          _settings = settings;
       }
 
@@ -16,10 +16,10 @@ namespace PriceCollector.Config {
          return _settings.DeepClone();
       }
 
-      public static JsonParseConfig Load(string path) {
+      public static JsonConfig Load(string path) {
          var content = File.ReadAllText(path);
          var settings = JsonConvert.DeserializeObject<CollectorSettings>(content);
-         return new JsonParseConfig(settings);
+         return new JsonConfig(settings);
       }
    }
 }
