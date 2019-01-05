@@ -1,0 +1,55 @@
+﻿{
+    "Settings": [
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 96шт",
+            "SellerName": "Детский мир",
+            "ParseSettings": {
+                "Url": "https://www.detmir.ru/product/index/id/3019066/",
+                "ElementSelector": "pr#priceId"
+            }
+        },
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 96шт",
+            "SellerName": "Кораблик",
+            "ParseSettings": {
+                "Url": "https://tula.korablik.ru/product/2260317/?utm_referrer=&fa821dba_ipp_key=v1545506584720%2fv33947245b95adc7a72e273%2fNb6LzXjXgLQhNbnLD4JqgQ%3d%3d&fa821dba_ipp_uid=1545506584720%2fgOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d&fa821dba_ipp_uid1=1545506584720&fa821dba_ipp_uid2=gOfXVm4NlOCT9mod%2foBQBplRmsNYDOpu8%2bDPcOQ%3d%3d",
+                "ElementSelector": "span#current_offer_price",
+                "AttributeName": "data-price",
+                "LoaderName": "ChromeDriver"
+            }
+        },
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
+            "SellerName": "Дочки-сыночки (Тула)",
+            "ParseSettings": {
+                "Url": "https://tula.dochkisinochki.ru/icatalog/products/118047/",
+                "ElementSelector": "span#ProductMainPrice"
+            }
+        },
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
+            "SellerName": "Дочки-сыночки (Щекино)",
+            "ParseSettings": {
+                "Url": "https://www.dochkisinochki.ru/icatalog/products/118047/",
+                "ElementSelector": "span#ProductMainPrice"
+            }
+        },
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
+            "SellerName": "Аптека-ру (Тула)",
+            "ParseSettings": {
+                "Url": "https://apteka.ru/catalog/huggies-podguzniki-classic-3-4-9kg-n78-_530c4aa546611/",
+                "ElementSelector": "div.new_price span"
+            }
+        },
+        {
+            "ProductName": "Подгузники Huggies Classic 3 4-9кг 78шт",
+            "SellerName": "Ласточка (Тула)",
+            "ParseSettings": {
+                "Url": "http://www.babypages.ru/catalog/podguzniki_odnorazovye/huggies_classic_4_9_kg_razmer_3_78_sht/",
+                "ElementSelector": "div.item_price meta[itemprop='price']",
+                "AttributeName": "content"
+            }
+        }
+    ]
+}
